@@ -33,3 +33,13 @@ uv sync
 # Run
 uv run train.py
 ```
+## Evaluation Metrics
+
+o counter heavy spatial class imbalances (e.g., small hazards hiding within a massive safe open field), standard pixel accuracy measurements are bypassed.
+
+Instead, the framework computes **Intersection over Union (IoU)**
+
+$$\text{IoU} = \frac{\text{True Positives (TP)}}{\text{True Positives (TP)} + \text{False Positives (FP)} + \text{False Negatives (FN)}}$$
+
+This guarantees that a model prioritizing overall pixel count accuracy over explicit spatial micro-hazard boundary detection is caught and properly penalized during evaluation phases.
+
